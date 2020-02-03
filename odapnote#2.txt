@@ -1,4 +1,5 @@
 
+https://d1.awsstatic.com/aws-answers/AWS_DDoS_Attack_Mitigation.pdf
 https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
 https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html
 https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html
@@ -20,8 +21,26 @@ https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html#age
 https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
 https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html
 https://docs.aws.amazon.com/directconnect/
-
-
-
-
+https://d1.awsstatic.com/whitepapers/aws_security_incident_response.pdf
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html
+https://aws.amazon.com/waf/faq/
+https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_upload_lists.html
+https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-server-cert.html
+https://docs.aws.amazon.com/inspector/latest/userguide/inspector_rule-packages.html
+https://docs.aws.amazon.com/inspector/latest/userguide/inspector_security-best-practices.html
+https://aws.amazon.com/premiumsupport/knowledge-center/potential-account-compromise/
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/iam-access-control-identity-based-cwe.html
+https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Usage-Metrics.html
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/PublishMetrics.html
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-common-scenarios.html
+https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html
+https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html
+https://aws.amazon.com/blogs/security/tag/aws-config/
+https://aws.amazon.com/blogs/security/continuously-monitor-unused-iam-roles-aws-config/
+https://aws.amazon.com/blogs/security/how-to-use-aws-config-to-monitor-for-and-respond-to-amazon-s3-buckets-allowing-public-access/
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/resource-based-policies-cwe.html
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CWE_Troubleshooting.html
 
