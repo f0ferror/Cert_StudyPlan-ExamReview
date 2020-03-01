@@ -2,7 +2,7 @@
 This is the page; sharing my experience for AWS Certified Security Specialty Exam(Feb 2020) https://infoinsecu.wordpress.com/2020/02/17/aws-certified-security-specialty-study-guide/
 Overall, it took me about 3 months for studying this exam with full-time 40hrs/week job. I’m pretty sure anyone who has more hands-on experience in AWS environment will take less than 3 months to pass this exam.
 
-# Study Material;
+# Study Material
 
 AcloudGuru Course; AWS Certified Security Specialty 2020 
 LinuxAcademy Course; AWS Certified Security – Specialty Certification
@@ -10,7 +10,7 @@ BrainCert Practice Exam; AWS Certified Security – Specialty Practice Exams
 AWS FAQ & WhitePapers & Re:Invent video
  
 
-# Study Plan;
+# Study Plan
 
 I spent first two months listening ACloudGuru course and make my own notes, then watched LinuxAcademy. ACloudGuru course does cover all of exam topics, though you still need to fill more details based on AWS FAQ or whitepapers. I really like the structure of A Cloud Guru‘s, having summary video and practice quiz for individual chapter; where students can refresh their memory and go for further research & study based on quiz’s feedback. Linux Academy course has really useful feature; lab, where you can go into their temporary aws console and practice it. If you prefer to learn hands-on things, I would recommend LinuxAcademy.
 
