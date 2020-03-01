@@ -24,4 +24,5 @@ By the time I got 95 score on ACloudGuru Exam Simulator, I decide to book the ex
 If you prefer to read additional study material & study plan, I find below blogs&sites are useful;
 
 A CloudGuru’s study guide article:  https://info.acloud.guru/resources/aws-certified-security-speciality-exam-prep-guide 
+
 A CloudGuru AWS Certified Security Specialty forum: https://acloud.guru/forums/aws-certified-security-specialty 
