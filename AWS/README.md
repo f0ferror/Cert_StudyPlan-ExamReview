@@ -26,3 +26,15 @@ If you prefer to read additional study material & study plan, I find below blogs
 A CloudGuru’s study guide article:  https://info.acloud.guru/resources/aws-certified-security-speciality-exam-prep-guide 
 
 A CloudGuru AWS Certified Security Specialty forum: https://acloud.guru/forums/aws-certified-security-specialty 
+
+# Exam Review
+ 
+FEBRUARY 17, 2020~LEAVE A COMMENT ~ EDIT"AWS CERTIFIED SECURITY SPECIALTY EXAM REVIEW – 2020"
+The AWS Certified Security – Specialty helps you broad understanding about Security principals and architecture of AWS environment and also deep-dive of security tools and service that aws provides.
+
+The exam format is multiple choice, multiple answers; 170 minutes(Practice test is $40)  and costs 300 USD. *TIPs* When you register your exam or practice exam, you can get 50% OFF for exam fee and FREE practice exam if you have vouchers to use from previous AWS cert test. Luckily, I had vouchers to use for both after passing practitioner test. benefits
+
+For more details about exam, please check AWS official website and AWS Certified Security Specialty Exam Guide
+
+I took exam on Feb 17th, 2020 10:00AM, it took me literally entire 160 minutes to finish. I had 10 minutes before time out, and had 5 more survey questions after the exam questions review :o..  The level of exam is tougher than i thought. I’m glad that I pass. I will update more study plan & material I used for study on next posting.
+
