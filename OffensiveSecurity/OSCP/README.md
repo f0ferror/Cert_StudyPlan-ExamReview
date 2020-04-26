@@ -14,12 +14,16 @@ nmap -sT -sV -A -O -v -p 1-65535 192.168.1.30 > /root/PWK-Lab/192.168.1.30/nmap-
 -sS stealth scanning<br />
 nmap -vv -Pn -A -sC -sS -T 4 -p- 10.0.0.1<br />
 nmap -p- -sS -A 192.168.88.155<br />
+
 Vuln scan : nmap -sS -sV --script=vulscan/vulscan.nse 10.11.1.44<br />
 OS detection : nmap -O -v 10.11.1.5<br />
+
 
 ### automated scanning tools<br />
 python /root/Recon/Reconnoitre/reconnoitre.py -t 10.11.1.125 -o /root/PWK-Lab/10.11.1.125/ --services
 ref : https://github.com/codingo/Reconnoitre
+
+
 
 ### SSH(22)
 OpenFuck (Apache mod_ssl < 2.8.7 OpenSSL) 764.c <br />
@@ -39,6 +43,7 @@ check windows OS files : https://www.quora.com/How-can-I-tell-what-version-of-Wi
 Bruteforce : <br />
 medusa -h 192.168.88.152 -u user -P /root/SecLists/Passwords/bt4-password.txt -M ftp<br />
 ./root/PWK-Lab/FTP/ftp-user-enum-1.0/ftp-user-enum.pl -U /root/PWK-Lab/fuzzdb/bruteforce/names/simple-users.txt -t 10.11.1.116"<br />
+
 
 
 ### SMTP(25)
