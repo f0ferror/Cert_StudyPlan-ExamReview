@@ -1,10 +1,10 @@
 ### automate VPN
 
-tar xvzf file.tar.gz
-echo 'OS-#####' > cred.txt
-echo ' #######' >> cred.txt
-vi auth-user-pass cred.txt
-openvpn OS-####-PWK.ovpn
+tar xvzf file.tar.gz 
+echo 'OS-#####' > cred.txt 
+echo ' #######' >> cred.txt 
+vi auth-user-pass cred.txt 
+openvpn OS-####-PWK.ovpn 
 
 
 ### nmap scanning
