@@ -59,11 +59,17 @@ medusa -h 10.x.x.x -u user -P /root/SecLists/Passwords/bt4-password.txt -M ftp
 nmap --script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x 
 nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x 
 nmap --script smtp-enum-users.nse 10.x.x.x
+```
+**smtp-user-enum: enumerating users** <br />
+```sh 
 smtp-user-enum -M VRFY -U users.txt -t 10.x.x.x
 smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t 10.x.x.x
 smtp-user-enum -M VRFY -U  /usr/share/seclists/Usernames/Names/names.txt -t 10.x.x.x
-telnet INSERTIPADDRESS 25
-nc -nvv INSERTIPADDRESS 25
+```
+**connecting to mailsvr* <br />
+```sh 
+telnet IPADDRESS 25
+nc -nvv IPADDRESS 25
 ```
 msf module : auxiliary/scanner/smtp/smtp_enum<br />
 
