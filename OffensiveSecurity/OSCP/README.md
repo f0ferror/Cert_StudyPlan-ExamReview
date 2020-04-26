@@ -82,6 +82,18 @@ onesixtyone -c community -i ips<br />
 nmap -A -p 139,445 10.11.1.1-254 -oG smb_service.txt; grep Up smb_service.txt | cut -d "" "" -f 2 <br />
 nmap 10.11.1.* -p139,445 --open -oG - | awk '/139\/open.*445\/open/{print $2}' <br />
 **vulnerability scsanning** : nmap -p 139,135,445 -vv --script=smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-ms17-010.nse 10.x.x.x <br />
+smbclient \\\\$ip\\$share<br />
+-- nmap --script smb-enum-users.nse -p445 10.x.x.x  <br />
+-- sudo nmap -sU -sS --script smb-enum-users.nse -p U:137,T:139 10.x.x.x  <br />
+smbclient -L //10.x.x.x/share -U user <br />
+smbclient //10.x.x.x//IPC$ -N <br />
+1. acccheck -v -t 10.11.1.223 -u user -P /usr/share/dirb/wordlists/common.txt <br />
+acccheck -v -t 192.168.88.152 -U /root/Vulnhub/Stapler/user.txt  -P /usr/share/dirb/wordlists/common.txt <br />
+2. smbmap -u user -p user -d share -H 10.11.1.227 <br />
+smbmap -u user -p .bash_history -d share -H 10.11.1.227 <br />
+smbmap -H 10.11.1.227\share -u user -p '.bash_history' -L <br />
+ref : https://hackercool.com/2016/07/smb-enumeration-with-kali-linux-enum4linuxacccheck-smbmap/<br />
+
 
 ### MISC
 
