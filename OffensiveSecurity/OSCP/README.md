@@ -1,4 +1,4 @@
-## BOF Study Guide
+## Buffer Over Flow(BOF) Study Guide
 **Blog post :**  https://infoinsecu.wordpress.com/2019/08/13/oscp-study-guide-buffer-overflow/ 
 
 As we already know if you want to pass OSCP exam, you need to know how to build BoF code.
@@ -14,6 +14,8 @@ Before exam, I practiced building my own exploit code for BoF vulnerabilities in
 - Savant 3.1 : https://www.exploit-db.com/exploits/18401<br />
 - WarFTPd 1.6.5: https://www.exploit-db.com/exploits/3570<br />
 - PCMAN FTP 2.0.7: https://www.exploit-db.com/exploits/26471<br />
+
+<br />
  
 ## Exam Review 
-https://infoinsecu.wordpress.com/2019/08/04/oscp-2019-exam-review/
+**Blog post :**  https://infoinsecu.wordpress.com/2019/08/04/oscp-2019-exam-review/
