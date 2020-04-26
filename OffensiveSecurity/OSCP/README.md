@@ -18,7 +18,7 @@ nmap -vv -Pn -A -sC -sS -T 4 -p- 10.x.x.x<br />
 nmap -p- -sS -A 10.x.x.x<br />
 ```
 Vuln scan ```sh nmap -sS -sV --script=vulscan/vulscan.nse 10.x.x.x ```<br />
-OS detection : nmap -O -v 10.x.x.x<br />
+OS detection ```sh nmap -O -v 10.x.x.x ```<br />
 
 
 - cf. Automated scanning tools<br />
