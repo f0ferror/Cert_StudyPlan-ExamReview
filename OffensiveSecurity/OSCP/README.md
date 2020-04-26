@@ -48,4 +48,4 @@ smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_us
 smtp-user-enum -M VRFY -U  /usr/share/seclists/Usernames/Names/names.txt -t 10.11.1.229<br />
 telnet INSERTIPADDRESS 25<br />
 nc -nvv INSERTIPADDRESS 25<br />
-auxiliary/scanner/smtp/smtp_enum<br />
+msf module : auxiliary/scanner/smtp/smtp_enum<br />
