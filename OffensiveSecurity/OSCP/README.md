@@ -6,15 +6,14 @@ Before exam, I practiced building my own exploit code for BoF vulnerabilities in
 
 *Reference* https://www.vortex.id.au/2017/05/pwkoscp-stack-buffer-overflow-practice/
 
-<br />
-- dostackbufferoverflowgood : This is good for understanding how BoF works. https://github.com/justinsteven/dostackbufferoverflowgood
-- SLmail v5.5 : Covered in OSCP guide(exercise) , try build your own exploit-code for BoF on different environments like Windows XP or Windows7 SP3, etc. https://www.exploit-db.com/exploits/638
-- FreeFloatFTP Server 1.0 : https://www.exploit-db.com/exploits/17546
-- VulnSever.exe : Covered in OSCP Lab, try build your own exploit-code for BoF on different environment
-- Minishare 1.4.1 : Covered in OSCP Lab, i built my own BoF exploit on Windows XP SP3 English and Windows 7 SP1. https://www.exploit-db.com/exploits/616
-- Savant 3.1 : https://www.exploit-db.com/exploits/18401
-- WarFTPd 1.6.5: https://www.exploit-db.com/exploits/3570
-- PCMAN FTP 2.0.7: https://www.exploit-db.com/exploits/26471
+- dostackbufferoverflowgood : This is good for understanding how BoF works. https://github.com/justinsteven/dostackbufferoverflowgood<br />
+- SLmail v5.5 : Covered in OSCP guide(exercise) , try build your own exploit-code for BoF on different environments like Windows XP or Windows7 SP3, etc. https://www.exploit-db.com/exploits/638<br />
+- FreeFloatFTP Server 1.0 : https://www.exploit-db.com/exploits/17546<br />
+- VulnSever.exe : Covered in OSCP Lab, try build your own exploit-code for BoF on different environment<br />
+- Minishare 1.4.1 : Covered in OSCP Lab, i built my own BoF exploit on Windows XP SP3 English and Windows 7 SP1. https://www.exploit-db.com/exploits/616<br />
+- Savant 3.1 : https://www.exploit-db.com/exploits/18401<br />
+- WarFTPd 1.6.5: https://www.exploit-db.com/exploits/3570<br />
+- PCMAN FTP 2.0.7: https://www.exploit-db.com/exploits/26471<br />
  
 ## Exam Review 
 https://infoinsecu.wordpress.com/2019/08/04/oscp-2019-exam-review/
