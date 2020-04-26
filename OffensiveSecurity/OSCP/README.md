@@ -30,7 +30,7 @@ unicornscan -i tap0 -I -mT 10.x.x.x:a <br />
 masscan -p0-65535 10.x.x.x --rate 150000 -oL output.txt <br />
 
 ### Scanning per protocols
-- **SSH(22)** <br />
+## - **SSH(22)** <br />
 Bruteforce : <br />
 ```sh
 nmap -p 22 --script ssh-brute --script-args userdb=users.txt,passdb=users.txt --script-args ssh-brute.timeout=4s 10.x.x.x 
@@ -40,7 +40,7 @@ ref : https://github.com/g0tmi1k/debian-ssh  && https://blog.g0tmi1k.com/2010/04
 OpenF*** (Apache mod_ssl < 2.8.7 OpenSSL) 764.c <br />
 
 
-- **FTP(21)** <br />
+## - **FTP(21)** <br />
 ```sh
 nmap -sV -Pn -vv -p 21  --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 10.x.x.x
 nmap --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 10.x.x.x
@@ -54,7 +54,7 @@ medusa -h 10.x.x.x -u user -P /root/SecLists/Passwords/bt4-password.txt -M ftp
 **Default cred** (anonymous/anonymous) | (ftp/ftp) | (ftpuser|ftpuser)<br />
 
 
-- **SMTP(25)**<br />
+## - **SMTP(25)**<br />
 ```sh 
 nmap --script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x 
 nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x 
