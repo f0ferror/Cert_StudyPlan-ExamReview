@@ -19,13 +19,11 @@ Before exam, I practiced building my own exploit code for BoF vulnerabilities in
  
 ## Exam Review 
 **Blog post :**  https://infoinsecu.wordpress.com/2019/08/04/oscp-2019-exam-review/<br />
-
-**Tips for OSCP Exam** <br />
-
-[Before an Exam]<br />
+ 
+Before an Exam...<br />
 - Try to sleep & rest enough before the exam date<br />
 - Prepare with your tools(Kali, cheat-sheet, notepad(cherrytree,etc))<br />
-[During an Exam]<br />
+On Exam Day...<br />
 - Try to rest during the exam at least 15 minutes<br />
 - Prepare a course & lab report for extra 5 points!!<br />
 - Try not to fall into rabbit hole and stay positive<br />
