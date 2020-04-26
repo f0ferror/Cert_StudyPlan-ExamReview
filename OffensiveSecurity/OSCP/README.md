@@ -17,11 +17,9 @@ nmap -sT -sV -A -O -v -p 1-65535 192.168.1.30 > /root/PWK-Lab/192.168.1.30/nmap-
 nmap -vv -Pn -A -sC -sS -T 4 -p- 10.x.x.x<br />
 nmap -p- -sS -A 10.x.x.x<br />
 ```
-Vuln scan ``` nmap -sS -sV --script=vulscan/vulscan.nse 10.x.x.x ```<br />
-OS detection ``` nmap -O -v 10.x.x.x ```<br />
-
-
-- cf. Automated scanning tools<br />
+Vulnerability Scanning :  ``` nmap -sS -sV --script=vulscan/vulscan.nse 10.x.x.x ```<br />
+OS detection :  ``` nmap -O -v 10.x.x.x ```<br />
+Automated scanning tools<br />
 [Reconnoitre : ](https://github.com/codingo/Reconnoitre)
 ```python /root/Recon/Reconnoitre/reconnoitre.py -t 10.x.x.x -o /root/PWK-Lab/10.x.x.x/ --services``` <br />
 [OneTwoPunch : ](https://github.com/superkojiman/onetwopunch)
