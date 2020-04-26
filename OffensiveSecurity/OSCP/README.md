@@ -64,3 +64,15 @@ USER boris<br />
 PASS *****<br />
 LIST <br />
 RETR 1 <br />
+
+
+- SNMP(161)<br />
+snmp-check -t [IP] -c public
+snmpwalk -c public -v1 10.0.0.0
+nmap -sU --open -p 161 10.11.1.0/24 -oG mega-snmp.txt
+sudo nmap -sU -p 161 --script default,snmp-sysdescr 10.11.1.0/24
+nmap 10.11.1.* -p161 --open -oG - | awk '/161\/open/{print $2}'
+
+*public/private/manager
+for ip in $(seq 1 254); do echo 10.11.1.$ip; done > ips
+onesixtyone -c community -i ips
