@@ -34,7 +34,7 @@ masscan -p0-65535 10.x.x.x --rate 150000 -oL output.txt <br />
 Bruteforce : <br />
 ```sh
 nmap -p 22 --script ssh-brute --script-args userdb=users.txt,passdb=users.txt --script-args ssh-brute.timeout=4s 10.x.x.x<br />
-hydra -l user -P /usr/share/wordlists/rockyou.txt  10.x.x.x ssh -t 4<br />
+hydra -l user -P /usr/share/wordlists/rockyou.txt  10.x.x.x ssh -t 4
 ```
 ref : <br />
 https://github.com/g0tmi1k/debian-ssh 
@@ -44,39 +44,39 @@ OpenF*** (Apache mod_ssl < 2.8.7 OpenSSL) 764.c <br />
 
 - **FTP(21)** <br />
 ```sh
-nmap -sV -Pn -vv -p 21  --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 10.x.x.x<br />
+nmap -sV -Pn -vv -p 21  --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 10.x.x.x
 nmap --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 10.x.x.x
-check windows OS files : https://www.quora.com/How-can-I-tell-what-version-of-Windows-is-installed-on-a-hard-drive-without-booting-it<br />
+check windows OS files : https://www.quora.com/How-can-I-tell-what-version-of-Windows-is-installed-on-a-hard-drive-without-booting-it 
 ```
 Bruteforce : <br />
 ```sh
-medusa -h 10.x.x.x -u user -P /root/SecLists/Passwords/bt4-password.txt -M ftp<br />
-./root/PWK-Lab/FTP/ftp-user-enum-1.0/ftp-user-enum.pl -U /root/PWK-Lab/fuzzdb/bruteforce/names/simple-users.txt -t 10.x.x.x"<br />
+medusa -h 10.x.x.x -u user -P /root/SecLists/Passwords/bt4-password.txt -M ftp 
+./root/PWK-Lab/FTP/ftp-user-enum-1.0/ftp-user-enum.pl -U /root/PWK-Lab/fuzzdb/bruteforce/names/simple-users.txt -t 10.x.x.x" 
 ```
 **Default cred** (anonymous/anonymous) | (ftp/ftp) | (ftpuser|ftpuser)<br />
 
 
 - **SMTP(25)**<br />
 ```sh 
-nmap --script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x<br />
-nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x<br />
-nmap --script smtp-enum-users.nse 10.x.x.x<br />
-smtp-user-enum -M VRFY -U users.txt -t 10.x.x.x<br />
-smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t 10.x.x.x<br />
-smtp-user-enum -M VRFY -U  /usr/share/seclists/Usernames/Names/names.txt -t 10.x.x.x<br />
-telnet INSERTIPADDRESS 25<br />
-nc -nvv INSERTIPADDRESS 25<br />
+nmap --script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x 
+nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x 
+nmap --script smtp-enum-users.nse 10.x.x.x
+smtp-user-enum -M VRFY -U users.txt -t 10.x.x.x
+smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t 10.x.x.x
+smtp-user-enum -M VRFY -U  /usr/share/seclists/Usernames/Names/names.txt -t 10.x.x.x
+telnet INSERTIPADDRESS 25
+nc -nvv INSERTIPADDRESS 25
 ```
 msf module : auxiliary/scanner/smtp/smtp_enum<br />
 
 - **POP3(110)**<br />
 **Bruteforce** : ```hydra -L usr.txt -P /usr/share/wordlists/fasttrack.txt -t20 10.x.x.x -s55007 -I pop3```<br />
 ```sh 
-POP3 command<br />
-USER boris<br />
-PASS *****<br />
-LIST <br />
-RETR 1 <br />
+POP3 command
+USER boris
+PASS *****
+LIST 
+RETR 1 
 ```
 
 - **SNMP(161)**<br />
