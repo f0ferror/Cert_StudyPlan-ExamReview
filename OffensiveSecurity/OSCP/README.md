@@ -19,7 +19,7 @@ Vuln scan : nmap -sS -sV --script=vulscan/vulscan.nse 10.11.1.44<br />
 OS detection : nmap -O -v 10.11.1.5<br />
 
 
-### automated scanning tools<br />
+cf. Automated scanning tools<br />
 python /root/Recon/Reconnoitre/reconnoitre.py -t 10.11.1.125 -o /root/PWK-Lab/10.11.1.125/ --services
 ref : https://github.com/codingo/Reconnoitre
 
@@ -47,7 +47,7 @@ medusa -h 192.168.88.152 -u user -P /root/SecLists/Passwords/bt4-password.txt -M
 
 
 
-### SMTP(25)
+- SMTP(25)<br />
 nmap --script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.11.1.227<br />
 nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.0.0.1<br />
 nmap --script smtp-enum-users.nse 10.11.1.229<br />
