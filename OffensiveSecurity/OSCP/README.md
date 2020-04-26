@@ -18,7 +18,8 @@ nmap -vv -Pn -A -sC -sS -T 4 -p- 10.x.x.x<br />
 nmap -p- -sS -A 10.x.x.x<br />
 ```
 Vulnerability Scanning :  ``` nmap -sS -sV --script=vulscan/vulscan.nse 10.x.x.x ```<br />
-OS detection :  ``` nmap -O -v 10.x.x.x ```<br />
+OS detection :  ``` nmap -O -v 10.x.x.x ```<br /><br />
+
 Automated scanning tools<br />
 [Reconnoitre : ](https://github.com/codingo/Reconnoitre)
 ```python /root/Recon/Reconnoitre/reconnoitre.py -t 10.x.x.x -o /root/PWK-Lab/10.x.x.x/ --services``` <br />
