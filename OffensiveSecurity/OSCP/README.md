@@ -12,26 +12,26 @@ nmap -sU -sV -n --top-ports 200 192.168.1.30  > /root/PWK-Lab/192.168.1.30/nmap-
 nmap -sT -sV -A -O -v -p 1-65535 192.168.1.30 > /root/PWK-Lab/192.168.1.30/nmap-tcp<br />
 
 -sS stealth scanning<br />
-nmap -vv -Pn -A -sC -sS -T 4 -p- 10.0.0.1<br />
-nmap -p- -sS -A 192.168.88.155<br />
+nmap -vv -Pn -A -sC -sS -T 4 -p- 10.x.x.x<br />
+nmap -p- -sS -A 10.x.x.x<br />
 
-Vuln scan : nmap -sS -sV --script=vulscan/vulscan.nse 10.11.1.44<br />
-OS detection : nmap -O -v 10.11.1.5<br />
+Vuln scan : nmap -sS -sV --script=vulscan/vulscan.nse 10.x.x.x<br />
+OS detection : nmap -O -v 10.x.x.x<br />
 
 
 - cf. Automated scanning tools<br />
 [Reconnoitre : ](https://github.com/codingo/Reconnoitre)
-python /root/Recon/Reconnoitre/reconnoitre.py -t 10.11.1.125 -o /root/PWK-Lab/10.11.1.125/ --services <br />
+python /root/Recon/Reconnoitre/reconnoitre.py -t 10.x.x.x -o /root/PWK-Lab/10.x.x.x/ --services <br />
 [OneTwoPunch : ](https://github.com/superkojiman/onetwopunch)
 vi targets.txt; onetwopunch.sh -t targets.txt -p all -n "-sV -O --version-intensity=9" <br />
-unicornscan -i tap0 -I -mT 10.11.1.252:a <br />
-masscan -p0-65535 10.11.1.7 --rate 150000 -oL output.txt <br />
+unicornscan -i tap0 -I -mT 10.x.x.x:a <br />
+masscan -p0-65535 10.x.x.x --rate 150000 -oL output.txt <br />
 
 ### Scanning per protocols
 - **SSH(22)** <br />
 Bruteforce : <br />
-nmap -p 22 --script ssh-brute --script-args userdb=users.txt,passdb=users.txt --script-args ssh-brute.timeout=4s 192.168.88.152<br />
-hydra -l user -P /usr/share/wordlists/rockyou.txt  192.168.88.171 ssh -t 4<br />
+nmap -p 22 --script ssh-brute --script-args userdb=users.txt,passdb=users.txt --script-args ssh-brute.timeout=4s 10.x.x.x<br />
+hydra -l user -P /usr/share/wordlists/rockyou.txt  10.x.x.x ssh -t 4<br />
 ref : <br />
 https://github.com/g0tmi1k/debian-ssh 
 https://blog.g0tmi1k.com/2010/04/pwnos/
@@ -39,28 +39,28 @@ OpenF*** (Apache mod_ssl < 2.8.7 OpenSSL) 764.c <br />
 
 
 - **FTP(21)** <br />
-nmap -sV -Pn -vv -p 21  --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 10.11.1.226<br />
-nmap --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 10.0.0.1
+nmap -sV -Pn -vv -p 21  --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 10.x.x.x<br />
+nmap --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 10.x.x.x
 check windows OS files : https://www.quora.com/How-can-I-tell-what-version-of-Windows-is-installed-on-a-hard-drive-without-booting-it<br />
 Bruteforce : <br />
-medusa -h 192.168.88.152 -u user -P /root/SecLists/Passwords/bt4-password.txt -M ftp<br />
-./root/PWK-Lab/FTP/ftp-user-enum-1.0/ftp-user-enum.pl -U /root/PWK-Lab/fuzzdb/bruteforce/names/simple-users.txt -t 10.11.1.116"<br />
+medusa -h 10.x.x.x -u user -P /root/SecLists/Passwords/bt4-password.txt -M ftp<br />
+./root/PWK-Lab/FTP/ftp-user-enum-1.0/ftp-user-enum.pl -U /root/PWK-Lab/fuzzdb/bruteforce/names/simple-users.txt -t 10.x.x.x"<br />
 **Default cred** (anonymous/anonymous) | (ftp/ftp) | (ftpuser|ftpuser)<br />
 
 
 - **SMTP(25)**<br />
-nmap --script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.11.1.227<br />
-nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.0.0.1<br />
-nmap --script smtp-enum-users.nse 10.11.1.229<br />
-smtp-user-enum -M VRFY -U users.txt -t 10.11.1.229<br />
-smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t 192.168.88.171<br />
-smtp-user-enum -M VRFY -U  /usr/share/seclists/Usernames/Names/names.txt -t 10.11.1.229<br />
+nmap --script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x<br />
+nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x<br />
+nmap --script smtp-enum-users.nse 10.x.x.x<br />
+smtp-user-enum -M VRFY -U users.txt -t 10.x.x.x<br />
+smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t 10.x.x.x<br />
+smtp-user-enum -M VRFY -U  /usr/share/seclists/Usernames/Names/names.txt -t 10.x.x.x<br />
 telnet INSERTIPADDRESS 25<br />
 nc -nvv INSERTIPADDRESS 25<br />
 msf module : auxiliary/scanner/smtp/smtp_enum<br />
 
 - **POP3(110)**<br />
-**Bruteforce** : hydra -L usr.txt -P /usr/share/wordlists/fasttrack.txt -t20 192.168.88.183 -s55007 -I pop3<br />
+**Bruteforce** : hydra -L usr.txt -P /usr/share/wordlists/fasttrack.txt -t20 10.x.x.x -s55007 -I pop3<br />
 POP3 command<br />
 USER boris<br />
 PASS *****<br />
@@ -85,13 +85,16 @@ nmap 10.11.1.* -p139,445 --open -oG - | awk '/139\/open.*445\/open/{print $2}' <
 smbclient \\\\$ip\\$share<br />
 -- nmap --script smb-enum-users.nse -p445 10.x.x.x  <br />
 -- sudo nmap -sU -sS --script smb-enum-users.nse -p U:137,T:139 10.x.x.x  <br />
+**smbclient**<br />
 smbclient -L //10.x.x.x/share -U user <br />
 smbclient //10.x.x.x//IPC$ -N <br />
-1. acccheck -v -t 10.11.1.223 -u user -P /usr/share/dirb/wordlists/common.txt <br />
-acccheck -v -t 192.168.88.152 -U /root/Vulnhub/Stapler/user.txt  -P /usr/share/dirb/wordlists/common.txt <br />
-2. smbmap -u user -p user -d share -H 10.11.1.227 <br />
-smbmap -u user -p .bash_history -d share -H 10.11.1.227 <br />
-smbmap -H 10.11.1.227\share -u user -p '.bash_history' -L <br />
+**checking access** <br />
+acccheck -v -t 10.x.x.x  -u user -P /usr/share/dirb/wordlists/common.txt <br />
+acccheck -v -t 10.x.x.x -U /root/Vulnhub/Stapler/user.txt  -P /usr/share/dirb/wordlists/common.txt <br />
+**smbmap**<br />
+smbmap -u user -p user -d share -H 10.x.x.x <br />
+smbmap -u user -p .bash_history -d share -H 10.x.x.x <br />
+smbmap -H 10.x.x.x\share -u user -p '.bash_history' -L <br />
 ref : https://hackercool.com/2016/07/smb-enumeration-with-kali-linux-enum4linuxacccheck-smbmap/<br />
 
 
