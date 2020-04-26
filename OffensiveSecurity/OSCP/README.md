@@ -1,22 +1,22 @@
 ### automate VPN
 
-tar xvzf file.tar.gz <br />
+tar xvzf file.tar.gz  <br />
 echo 'OS-#####' > cred.txt <br />
 echo ' #######' >> cred.txt <br />
 vi auth-user-pass cred.txt <br />
 openvpn OS-####-PWK.ovpn 
 
 
-### Default Nmap Scanning
-nmap -sU -sV -n --top-ports 200 192.168.1.30  > /root/PWK-Lab/192.168.1.30/nmap-udp
-nmap -sT -sV -A -O -v -p 1-65535 192.168.1.30 > /root/PWK-Lab/192.168.1.30/nmap-tcp
+### Default Nmap Scanning<br />
+nmap -sU -sV -n --top-ports 200 192.168.1.30  > /root/PWK-Lab/192.168.1.30/nmap-udp<br />
+nmap -sT -sV -A -O -v -p 1-65535 192.168.1.30 > /root/PWK-Lab/192.168.1.30/nmap-tcp<br />
 
--sS stealth scanning
-nmap -vv -Pn -A -sC -sS -T 4 -p- 10.0.0.1
-nmap -p- -sS -A 192.168.88.155
+-sS stealth scanning<br />
+nmap -vv -Pn -A -sC -sS -T 4 -p- 10.0.0.1<br />
+nmap -p- -sS -A 192.168.88.155<br />
 
-Vuln scan : nmap -sS -sV --script=vulscan/vulscan.nse 10.11.1.44
-OS detection : nmap -O -v 10.11.1.5
+Vuln scan : nmap -sS -sV --script=vulscan/vulscan.nse 10.11.1.44<br />
+OS detection : nmap -O -v 10.11.1.5<br />
 
 
 ### SSH(22)
