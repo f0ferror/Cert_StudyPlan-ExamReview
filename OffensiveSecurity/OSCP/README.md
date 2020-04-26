@@ -41,6 +41,8 @@ ref : https://github.com/g0tmi1k/debian-ssh  && https://blog.g0tmi1k.com/2010/04
 OpenF*** (Apache mod_ssl < 2.8.7 OpenSSL) 764.c <br />
 
 ## - **FTP(21)** <br />
+**Default cred** (anonymous/anonymous) | (ftp/ftp) | (ftpuser|ftpuser)<br />
+
 ```sh
 nmap -sV -Pn -vv -p 21  --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 10.x.x.x
 nmap --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 10.x.x.x
@@ -51,7 +53,6 @@ Bruteforce : <br />
 medusa -h 10.x.x.x -u user -P /root/SecLists/Passwords/bt4-password.txt -M ftp 
 ./root/PWK-Lab/FTP/ftp-user-enum-1.0/ftp-user-enum.pl -U /root/PWK-Lab/fuzzdb/bruteforce/names/simple-users.txt -t 10.x.x.x" 
 ```
-**Default cred** (anonymous/anonymous) | (ftp/ftp) | (ftpuser|ftpuser)<br />
 
 ## - **SMTP(25)**<br />
 ```sh 
@@ -78,6 +79,8 @@ RETR 1
 ```
 
 ## -  **SNMP(161)**<br />
+**Default Community Strings** : public/private/manager<br />
+
 ```sh 
 snmp-check -t [IP] -c public 
 snmpwalk -c public -v1 10.0.0.0 
@@ -89,7 +92,6 @@ cf. for ip in $(seq 1 254); do echo 10.11.1.$ip; done > ips<br />
 ```sh 
 nmap 10.11.1.* -p161 --open -oG - | awk '/161\/open/{print $2}' 
 ```
-**Default Community Strings** : public/private/manager<br />
 
  
 ## -  **SMB(139,445)**<br />
