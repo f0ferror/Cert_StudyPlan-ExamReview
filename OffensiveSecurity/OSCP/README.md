@@ -17,15 +17,16 @@ nmap -sT -sV -A -O -v -p 1-65535 192.168.1.30 > /root/PWK-Lab/192.168.1.30/nmap-
 nmap -vv -Pn -A -sC -sS -T 4 -p- 10.x.x.x<br />
 nmap -p- -sS -A 10.x.x.x<br />
 ```
-Vuln scan ```sh nmap -sS -sV --script=vulscan/vulscan.nse 10.x.x.x ```<br />
-OS detection ```sh nmap -O -v 10.x.x.x ```<br />
+Vuln scan ``` nmap -sS -sV --script=vulscan/vulscan.nse 10.x.x.x ```<br />
+OS detection ``` nmap -O -v 10.x.x.x ```<br />
 
 
 - cf. Automated scanning tools<br />
 [Reconnoitre : ](https://github.com/codingo/Reconnoitre)
-python /root/Recon/Reconnoitre/reconnoitre.py -t 10.x.x.x -o /root/PWK-Lab/10.x.x.x/ --services <br />
+```python /root/Recon/Reconnoitre/reconnoitre.py -t 10.x.x.x -o /root/PWK-Lab/10.x.x.x/ --services``` <br />
 [OneTwoPunch : ](https://github.com/superkojiman/onetwopunch)
-vi targets.txt; onetwopunch.sh -t targets.txt -p all -n "-sV -O --version-intensity=9" <br />
+```vi targets.txt; onetwopunch.sh -t targets.txt -p all -n "-sV -O --version-intensity=9" ```<br />
+
 unicornscan -i tap0 -I -mT 10.x.x.x:a <br />
 masscan -p0-65535 10.x.x.x --rate 150000 -oL output.txt <br />
 
@@ -57,6 +58,7 @@ medusa -h 10.x.x.x -u user -P /root/SecLists/Passwords/bt4-password.txt -M ftp<b
 
 
 - **SMTP(25)**<br />
+```sh 
 nmap --script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x<br />
 nmap --script=smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x<br />
 nmap --script smtp-enum-users.nse 10.x.x.x<br />
@@ -65,16 +67,18 @@ smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_us
 smtp-user-enum -M VRFY -U  /usr/share/seclists/Usernames/Names/names.txt -t 10.x.x.x<br />
 telnet INSERTIPADDRESS 25<br />
 nc -nvv INSERTIPADDRESS 25<br />
+```
 msf module : auxiliary/scanner/smtp/smtp_enum<br />
 
 - **POP3(110)**<br />
-**Bruteforce** : hydra -L usr.txt -P /usr/share/wordlists/fasttrack.txt -t20 10.x.x.x -s55007 -I pop3<br />
+**Bruteforce** : ```hydra -L usr.txt -P /usr/share/wordlists/fasttrack.txt -t20 10.x.x.x -s55007 -I pop3```<br />
+```sh 
 POP3 command<br />
 USER boris<br />
 PASS *****<br />
 LIST <br />
 RETR 1 <br />
-
+```
 
 - **SNMP(161)**<br />
 snmp-check -t [IP] -c public<br />
