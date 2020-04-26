@@ -1,0 +1,19 @@
+#automate VPN process
+tar xvzf vpnfile.tar.gz
+echo 'OS-#####' > cred.txt
+echo '********' >> cred.txt
+
+vi auth-user-pass cred.txt
+
+openvpn OS-#####.ovpn
+
+
+#Default nmap scanning
+nmap -sS -sV -sC -n 10.11.1.72 > /root/PWK-Lab/10.11.1.72/nmap-tcp
+nmap -sU -sV -n --top-ports 200 10.11.1.72  > /root/PWK-Lab/10.11.1.72/nmap-udp
+
+Vuln scan : nmap -sS -sV --script=vulscan/vulscan.nse 10.11.1.44
+OS detection : nmap -O -v 10.11.1.5
+
+#automated nmap tools 
+python /root/Recon/Reconnoitre/reconnoitre.py -t 10.11.1.125 -o /root/PWK-Lab/10.11.1.125/ --services
