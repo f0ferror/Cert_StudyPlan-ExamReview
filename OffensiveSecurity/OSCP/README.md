@@ -1,4 +1,4 @@
-### automate VPN
+## automate VPN
 ```sh
 tar xvzf file.tar.gz  <br />
 echo 'OS-#####' > cred.txt <br />
@@ -7,7 +7,7 @@ vi auth-user-pass cred.txt <br />
 openvpn OS-####-PWK.ovpn 
 ```
 
-### Default Nmap Scanning<br />
+## Default Nmap Scanning<br />
 ```sh
 nmap -sU -sV -n --top-ports 200 192.168.1.30  > /root/PWK-Lab/192.168.1.30/nmap-udp<br />
 nmap -sT -sV -A -O -v -p 1-65535 192.168.1.30 > /root/PWK-Lab/192.168.1.30/nmap-tcp<br />
@@ -67,7 +67,7 @@ nc -nvv INSERTIPADDRESS 25
 ```
 msf module : auxiliary/scanner/smtp/smtp_enum<br />
 
-- **POP3(110)**<br />
+## -  **POP3(110)**<br />
 **Bruteforce** : ```hydra -L usr.txt -P /usr/share/wordlists/fasttrack.txt -t20 10.x.x.x -s55007 -I pop3```<br />
 ```sh 
 POP3 command
@@ -77,7 +77,7 @@ LIST
 RETR 1 
 ```
 
-- **SNMP(161)**<br />
+## -  **SNMP(161)**<br />
 snmp-check -t [IP] -c public<br />
 snmpwalk -c public -v1 10.0.0.0<br />
 nmap -sU --open -p 161 10.11.1.0/24 -oG mega-snmp.txt<br />
@@ -87,7 +87,7 @@ nmap 10.11.1.* -p161 --open -oG - | awk '/161\/open/{print $2}'<br />
 **Default Community Strings** : public/private/manager<br />
 onesixtyone -c community -i ips<br />
 
-- **SMB(139,445)**<br />
+## -  **SMB(139,445)**<br />
 nmap -A -p 139,445 10.11.1.1-254 -oG smb_service.txt; grep Up smb_service.txt | cut -d "" "" -f 2 <br />
 nmap 10.11.1.* -p139,445 --open -oG - | awk '/139\/open.*445\/open/{print $2}' <br />
 **vulnerability scsanning** : nmap -p 139,135,445 -vv --script=smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-ms17-010.nse 10.x.x.x <br />
@@ -107,7 +107,7 @@ smbmap -H 10.x.x.x\share -u user -p '.bash_history' -L <br />
 ref : https://hackercool.com/2016/07/smb-enumeration-with-kali-linux-enum4linuxacccheck-smbmap/<br />
 
 
-### MISC
+## MISC
 
 - metasploit issue : <br />
 sudo apt-get update <br />
