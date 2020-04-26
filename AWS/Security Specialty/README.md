@@ -1,6 +1,6 @@
 # AWS Certified Security Specialty Study Guide
 This is the page; sharing my experience for AWS Certified Security Specialty Exam(Feb 2020) <br />
-blog post : https://infoinsecu.wordpress.com/2020/02/17/aws-certified-security-specialty-study-guide/ <br />
+**Blog post :** https://infoinsecu.wordpress.com/2020/02/17/aws-certified-security-specialty-study-guide/ <br />
 Overall, it took me about 3 months for studying this exam with full-time 40hrs/week job. I’m pretty sure anyone who has more hands-on experience in AWS environment will take less than 3 months to pass this exam.
 
 # Study Material
