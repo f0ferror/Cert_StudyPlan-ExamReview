@@ -41,7 +41,7 @@ ref : https://github.com/g0tmi1k/debian-ssh  && https://blog.g0tmi1k.com/2010/04
 OpenF*** (Apache mod_ssl < 2.8.7 OpenSSL) 764.c <br />
 
 ## - **FTP(21)** <br />
-**Default cred** (anonymous/anonymous) | (ftp/ftp) | (ftpuser|ftpuser)<br />
+Default cred : anonymous/anonymous | ftp/ftp | ftpuser|ftpuser<br />
 
 ```sh
 nmap -sV -Pn -vv -p 21  --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 10.x.x.x
@@ -67,7 +67,7 @@ smtp-user-enum -M VRFY -U users.txt -t 10.x.x.x
 smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t 10.x.x.x
 smtp-user-enum -M VRFY -U  /usr/share/seclists/Usernames/Names/names.txt -t 10.x.x.x
 ```
-**connecting to mailsvr* <br />
+connecting to mailsvr: <br />
 ```sh 
 telnet IPADDRESS 25
 nc -nvv IPADDRESS 25
