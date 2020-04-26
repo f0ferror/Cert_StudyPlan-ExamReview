@@ -19,11 +19,11 @@ Vuln scan : nmap -sS -sV --script=vulscan/vulscan.nse 10.11.1.44<br />
 OS detection : nmap -O -v 10.11.1.5<br />
 
 
-cf. Automated scanning tools<br />
+- cf. Automated scanning tools<br />
 [Reconnoitre : ](https://github.com/codingo/Reconnoitre)
-python /root/Recon/Reconnoitre/reconnoitre.py -t 10.11.1.125 -o /root/PWK-Lab/10.11.1.125/ --services
-
-onetwopunch : vi targets.txt; onetwopunch.sh -t targets.txt -p all -n "-sV -O --version-intensity=9"
+python /root/Recon/Reconnoitre/reconnoitre.py -t 10.11.1.125 -o /root/PWK-Lab/10.11.1.125/ --services <br />
+[OneTwoPunch : ](https://github.com/superkojiman/onetwopunch)
+vi targets.txt; onetwopunch.sh -t targets.txt -p all -n "-sV -O --version-intensity=9"
 
 
 ### Scanning per protocols
