@@ -69,8 +69,9 @@ msf module : auxiliary/scanner/smtp/smtp_enum<br />
 
 ## -  **POP3(110)**<br />
 **Bruteforce** : ```hydra -L usr.txt -P /usr/share/wordlists/fasttrack.txt -t20 10.x.x.x -s55007 -I pop3```<br />
-```sh 
+
 POP3 command
+```sh 
 USER boris
 PASS *****
 LIST 
@@ -78,14 +79,18 @@ RETR 1
 ```
 
 ## -  **SNMP(161)**<br />
-snmp-check -t [IP] -c public<br />
-snmpwalk -c public -v1 10.0.0.0<br />
-nmap -sU --open -p 161 10.11.1.0/24 -oG mega-snmp.txt<br />
-sudo nmap -sU -p 161 --script default,snmp-sysdescr 10.11.1.0/24<br />
+```sh 
+snmp-check -t [IP] -c public 
+snmpwalk -c public -v1 10.0.0.0 
+nmap -sU --open -p 161 10.11.1.0/24 -oG mega-snmp.txt 
+sudo nmap -sU -p 161 --script default,snmp-sysdescr 10.11.1.0/24 
+```
 cf. for ip in $(seq 1 254); do echo 10.11.1.$ip; done > ips<br />
-nmap 10.11.1.* -p161 --open -oG - | awk '/161\/open/{print $2}'<br />
+```sh 
+nmap 10.11.1.* -p161 --open -oG - | awk '/161\/open/{print $2}' 
+onesixtyone -c community -i ips 
+```
 **Default Community Strings** : public/private/manager<br />
-onesixtyone -c community -i ips<br />
 
 ## -  **SMB(139,445)**<br />
 nmap -A -p 139,445 10.11.1.1-254 -oG smb_service.txt; grep Up smb_service.txt | cut -d "" "" -f 2 <br />
