@@ -1,9 +1,9 @@
 ### automate VPN
 
-tar xvzf file.tar.gz 
-echo 'OS-#####' > cred.txt 
-echo ' #######' >> cred.txt 
-vi auth-user-pass cred.txt 
+tar xvzf file.tar.gz <br />
+echo 'OS-#####' > cred.txt <br />
+echo ' #######' >> cred.txt <br />
+vi auth-user-pass cred.txt <br />
 openvpn OS-####-PWK.ovpn 
 
 
@@ -18,6 +18,7 @@ nmap -p- -sS -A 192.168.88.155
 Vuln scan : nmap -sS -sV --script=vulscan/vulscan.nse 10.11.1.44
 OS detection : nmap -O -v 10.11.1.5
 
+
 ### SSH(22)
 OpenFuck (Apache mod_ssl < 2.8.7 OpenSSL) 764.c 
 Bruteforce : 
@@ -26,6 +27,7 @@ hydra -l user -P /usr/share/wordlists/rockyou.txt  192.168.88.171 ssh -t 4
 ref : 
 https://github.com/g0tmi1k/debian-ssh 
 https://blog.g0tmi1k.com/2010/04/pwnos/
+
 
 ### FTP(21)
 default cred ; (anonymous/anonymous) | (ftp/ftp) | (ftpuser|ftpuser)
