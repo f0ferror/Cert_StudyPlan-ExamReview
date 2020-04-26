@@ -1,11 +1,11 @@
 ### automate VPN
-
+```sh
 tar xvzf file.tar.gz  <br />
 echo 'OS-#####' > cred.txt <br />
 echo ' #######' >> cred.txt <br />
 vi auth-user-pass cred.txt <br />
 openvpn OS-####-PWK.ovpn 
-
+```
 
 ### Default Nmap Scanning<br />
 nmap -sU -sV -n --top-ports 200 192.168.1.30  > /root/PWK-Lab/192.168.1.30/nmap-udp<br />
