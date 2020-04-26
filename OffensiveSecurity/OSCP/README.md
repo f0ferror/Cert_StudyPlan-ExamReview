@@ -77,3 +77,12 @@ cf. for ip in $(seq 1 254); do echo 10.11.1.$ip; done > ips<br />
 nmap 10.11.1.* -p161 --open -oG - | awk '/161\/open/{print $2}'<br />
 Default community strings : public/private/manager<br />
 onesixtyone -c community -i ips<br />
+
+
+### MISC
+
+- metasploit issue : <br />
+sudo apt-get update <br />
+service postgresql restart <br />
+msfdb reinit  <br />
+cf : https://github.com/rapid7/metasploit-framework/issues/9556 <br />
