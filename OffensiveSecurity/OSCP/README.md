@@ -25,7 +25,8 @@ ref : https://github.com/codingo/Reconnoitre
 
 
 
-### SSH(22)
+### Scanning per protocols
+- SSH(22)
 OpenFuck (Apache mod_ssl < 2.8.7 OpenSSL) 764.c <br />
 Bruteforce : <br />
 nmap -p 22 --script ssh-brute --script-args userdb=users.txt,passdb=users.txt --script-args ssh-brute.timeout=4s 192.168.88.152
