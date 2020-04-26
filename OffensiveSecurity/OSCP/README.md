@@ -23,8 +23,9 @@ OS detection : nmap -O -v 10.11.1.5<br />
 [Reconnoitre : ](https://github.com/codingo/Reconnoitre)
 python /root/Recon/Reconnoitre/reconnoitre.py -t 10.11.1.125 -o /root/PWK-Lab/10.11.1.125/ --services <br />
 [OneTwoPunch : ](https://github.com/superkojiman/onetwopunch)
-vi targets.txt; onetwopunch.sh -t targets.txt -p all -n "-sV -O --version-intensity=9"
-
+vi targets.txt; onetwopunch.sh -t targets.txt -p all -n "-sV -O --version-intensity=9" <br />
+unicornscan -i tap0 -I -mT 10.11.1.252:a <br />
+masscan -p0-65535 10.11.1.7 --rate 150000 -oL output.txt <br />
 
 ### Scanning per protocols
 - SSH(22) <br />
