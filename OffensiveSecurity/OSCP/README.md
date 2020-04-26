@@ -1,9 +1,10 @@
 ## automate VPN
+creating txt file to automate vpn authentication
 ```sh
-tar xvzf file.tar.gz  <br />
-echo 'OS-#####' > cred.txt <br />
-echo ' #######' >> cred.txt <br />
-vi auth-user-pass cred.txt <br />
+tar xvzf file.tar.gz  
+echo 'OS-#####' > cred.txt  
+echo ' #######' >> cred.txt  
+vi auth-user-pass cred.txt  
 openvpn OS-####-PWK.ovpn 
 ```
 
