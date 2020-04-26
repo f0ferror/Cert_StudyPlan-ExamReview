@@ -71,7 +71,7 @@ snmp-check -t [IP] -c public<br />
 snmpwalk -c public -v1 10.0.0.0<br />
 nmap -sU --open -p 161 10.11.1.0/24 -oG mega-snmp.txt<br />
 sudo nmap -sU -p 161 --script default,snmp-sysdescr 10.11.1.0/24<br />
+cf. for ip in $(seq 1 254); do echo 10.11.1.$ip; done > ips<br />
 nmap 10.11.1.* -p161 --open -oG - | awk '/161\/open/{print $2}'<br />
-public/private/manager<br />
-for ip in $(seq 1 254); do echo 10.11.1.$ip; done > ips<br />
+Default community strings : public/private/manager<br />
 onesixtyone -c community -i ips<br />
