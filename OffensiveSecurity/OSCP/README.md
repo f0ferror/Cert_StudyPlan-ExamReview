@@ -39,7 +39,6 @@ hydra -l user -P /usr/share/wordlists/rockyou.txt  10.x.x.x ssh -t 4
 ref : https://github.com/g0tmi1k/debian-ssh  && https://blog.g0tmi1k.com/2010/04/pwnos/ <br />
 OpenF*** (Apache mod_ssl < 2.8.7 OpenSSL) 764.c <br />
 
- <br />
 ## - **FTP(21)** <br />
 ```sh
 nmap -sV -Pn -vv -p 21  --script=ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221 10.x.x.x
@@ -53,7 +52,6 @@ medusa -h 10.x.x.x -u user -P /root/SecLists/Passwords/bt4-password.txt -M ftp
 ```
 **Default cred** (anonymous/anonymous) | (ftp/ftp) | (ftpuser|ftpuser)<br />
 
- <br />
 ## - **SMTP(25)**<br />
 ```sh 
 nmap --script smtp-commands,smtp-enum-users,smtp-vuln-cve2010-4344,smtp-vuln-cve2011-1720,smtp-vuln-cve2011-1764 -p 25 10.x.x.x 
@@ -67,7 +65,6 @@ nc -nvv INSERTIPADDRESS 25
 ```
 msf module : auxiliary/scanner/smtp/smtp_enum<br />
 
- <br />
 ## -  **POP3(110)**<br />
 **Bruteforce** : ```hydra -L usr.txt -P /usr/share/wordlists/fasttrack.txt -t20 10.x.x.x -s55007 -I pop3```<br />
 
@@ -79,7 +76,6 @@ LIST
 RETR 1 
 ```
 
- <br />
 ## -  **SNMP(161)**<br />
 ```sh 
 snmp-check -t [IP] -c public 
@@ -93,7 +89,7 @@ cf. for ip in $(seq 1 254); do echo 10.11.1.$ip; done > ips<br />
 nmap 10.11.1.* -p161 --open -oG - | awk '/161\/open/{print $2}' 
 ```
 **Default Community Strings** : public/private/manager<br />
- <br />
+
  
 ## -  **SMB(139,445)**<br />
 Checking SMB port open/running : 
@@ -128,7 +124,6 @@ smbmap -H 10.x.x.x\share -u user -p '.bash_history' -L
 ref : https://hackercool.com/2016/07/smb-enumeration-with-kali-linux-enum4linuxacccheck-smbmap/<br />
 
 
- <br />
 ## MISC
 
 - metasploit issue : <br />
