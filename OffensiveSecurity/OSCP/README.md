@@ -1,5 +1,5 @@
 ## BOF Study Guide
-**blog post :**  https://infoinsecu.wordpress.com/2019/08/13/oscp-study-guide-buffer-overflow/ 
+**Blog post :**  https://infoinsecu.wordpress.com/2019/08/13/oscp-study-guide-buffer-overflow/ 
 
 As we already know if you want to pass OSCP exam, you need to know how to build BoF code.
 Before exam, I practiced building my own exploit code for BoF vulnerabilities including the one that I learned from the lab and course exercise. It’s easier to search BoF exploits on exploit-db and select the one that has a vulnerable app attached. You can use ruby or python code as a reference or someone’s github as a reference. <br />
