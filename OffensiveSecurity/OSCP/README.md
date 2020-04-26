@@ -78,6 +78,9 @@ nmap 10.11.1.* -p161 --open -oG - | awk '/161\/open/{print $2}'<br />
 Default community strings : public/private/manager<br />
 onesixtyone -c community -i ips<br />
 
+- **SMB(139,445)**<br />
+nmap --script=smb-enum-domains.nse,smb-enum-groups.nse,smb-enum-processes.nse,smb-enum-sessions.nse,smb-enum-shares.nse,smb-enum-users.nse,smb-ls.nse,smb-mbenum.nse,smb-os-discovery.nse,smb-print-text.nse,smb-psexec.nse,smb-security-mode.nse,smb-server-stats.nse,smb-system-info.nse,smb-vuln-conficker.nse,smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-regsvc-dos.nse,smbv2-enabled.nse 10.0.0.1<br />
+
 
 ### MISC
 
