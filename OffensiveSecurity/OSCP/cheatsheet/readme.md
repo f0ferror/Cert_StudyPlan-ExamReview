@@ -139,3 +139,10 @@ sudo apt-get update <br />
 service postgresql restart <br />
 msfdb reinit  <br />
 cf : https://github.com/rapid7/metasploit-framework/issues/9556 <br />
+
+
+## Windows Shell
+Non-Staged :  (windows/shell_reverse_tcp) && nc -nlvp 443
+Staged : (windows/shell/reverse_tcp) && use exploit/multi/handler
+
+
