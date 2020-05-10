@@ -68,7 +68,9 @@ browse.php?file=/etc/passwd
 index.php?file=
 ```
 If target has phpinfo.php, check out "file_uploads", see if appears as enabled(ON); if so, the target is vuln for LFI. 
-## - **Uplaoding malicious  .php file on database** <br />
+
+
+## - **Uploading malicious  .php file on database** <br />
 ref : http://hackingandsecurity.blogspot.com/2017/08/proj-12-exploiting-php-vulnerabilities.html
 SQL-phpshellscript : create below malicious (shell).php script on DB
 ```sh
