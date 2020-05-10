@@ -197,10 +197,10 @@ Ctrl+Alt+Shift+Del will be vmware's ctrl+alt+del
 
 
 
-## - SuirrelMail** <br />
+## - SuirrelMail <br />
 https://raw.githubusercontent.com/xl7dev/Exploit/master/SquirrelMail/SquirrelMail_RCE_exploit.sh
 	
-## - AT-TFTP** <br />
+## - AT-TFTP  <br />
  1.9 version : ref: https://github.com/brianwrf/cve-2006-6184
 
 ```sh
@@ -211,7 +211,7 @@ cat shellcode | msfvenom -e x86/shikata_ga_nai -b ""\x00"" -a x86 --platform win
 ```
 
 
-## - misc** <br />
+## - misc  <br />
 Drupal	cred(admin/admin)
 Elastix	"cred(admin/admin) http://example.com/vtigercrm/ 
 You might be able to upload shell in profile-photo.
